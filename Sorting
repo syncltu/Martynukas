@@ -1,39 +1,97 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MyProject_for_sorting
+namespace Crazy_sorting
 {
     class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Good day sir, please type the numbers after hitting \"Enter\" key");
+            Console.ReadLine();
+
+            string ivestis;
+            int numbers, a = 0;
+            List<int> mylist = new List<int>();
+
+            // while kol iveda, tol leidzia rasyt toliau, padaro skaiciu
+
+            while ((ivestis = Console.ReadLine()).Length > 0)
+                if (int.TryParse(ivestis, out numbers)) mylist.Add(numbers);
+
+            List<int> bubbleList = mylist;
+
+            Console.WriteLine("There are the numbers You typed!:");
+
+            if (mylist.Count == 0) return;
+
+            foreach (int n in mylist)
             {
-
-                String input;
-                int inputList, i = 1;
-                List<int> user_Inputs = new List<int>();
-
-                while ((input = Console.ReadLine()).Length > 0)
-                    if (int.TryParse(input, out inputList)) user_Inputs.Add(inputList);
-
-                Console.WriteLine("Numbers entered: ");
-                if (user_Inputs.Count == 0) return;
-
-                foreach (int n in user_Inputs)
-                    Console.WriteLine("Number" + i++ + ": " + n);
-
-                Console.ReadKey();
-                user_Inputs.Sort();
-                Console.WriteLine("List in sorted order");
-                foreach (int data in user_Inputs)
-
-                    Console.Write("    {0}", data);
-                    Console.WriteLine();
-                Console.ReadLine();
+                Console.WriteLine("{0}", n);
 
 
-                
             }
+            Console.ReadLine();
+
+            Console.WriteLine("Let me sort that for ya my men");
+            Console.ReadLine();
+
+
+            List<int> sortedlist = new List<int>();
+            foreach (int z in mylist)
+            {
+                sortedlist.Add(z);
+            }
+
+
+            sortedlist.Sort();
+
+
+            foreach (int c in sortedlist)
+            {
+                Console.WriteLine("{0} ", c);
+
+
+            }
+            Console.ReadLine();
+
+            Console.WriteLine("Dude, for extra charge Im gonna sum that for You – {0}", mylist.Sum());
+            Console.ReadLine();
+            //KODEL NX MAN META JAU SUSORTINTA LISTA!!! ACIPISI
+            Console.WriteLine("Now I am trying to sort that with \"Bubble sort\" method, but first I remind You the unsorted list");
+
+            //tuscias listas
+            int tuscias;
+            //unsorted
+            foreach (int z in mylist)
+            {
+                Console.WriteLine("{0}", z);
+            }
+            Console.ReadLine();
+            
+
+            for (int p = 0; p <= bubbleList.Count - 2; p++)
+            {
+                for (int i = 0; i <= bubbleList.Count - 2; i++)
+                {
+                    if (bubbleList[i] > bubbleList[i + 1])
+                    {
+                        tuscias = bubbleList[i + 1];
+                        bubbleList[i + 1] = bubbleList[i];
+                        bubbleList[i] = tuscias;
+                    }
+                }
+            }
+
+            Console.WriteLine("I think it is sorted:");
+            foreach (int b in bubbleList)
+            Console.Write(b + " ");
+
+
+            Console.ReadLine();
 
         }
     }
