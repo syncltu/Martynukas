@@ -2,12 +2,12 @@ using System;
 
 class MainClass
 {
-    public static int FirstFactorial(int num)
+    public int FirstFactorial(int num)
     {
         Console.WriteLine("Good day you shit");
         string shit = Console.ReadLine();
         if (Int32.TryParse(shit, out num))
-            Console.WriteLine("You have entered: {0}",num);
+            Console.WriteLine("You have entered: {0}", num);
         Console.ReadLine();
 
         int factorial = num;
@@ -33,9 +33,11 @@ class MainClass
     static void Main()
     {
         // keep this function call here
-        int finalAnswer = FirstFactorial(num);
+        int finalAnswer = new FirstFactorial();
 
-        Console.WriteLine("Final answer:{0}",finalAnswer);
+
+
+        Console.WriteLine("Final answer:{0}", finalAnswer);
         Console.ReadLine();
     }
 }
