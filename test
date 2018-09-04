@@ -1,0 +1,24 @@
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Liul");
+            string num = Console.ReadLine();
+            List<int> list = new List<int>();
+            for (int i = 0; i < num.Length+1; i++)
+            {
+                list.Add(num[i]);
+            }
+            foreach (var b in list)
+            {
+                Console.WriteLine("Take that {0}", b);
+            }
+            Console.ReadLine();
+        }
+    }
+}
